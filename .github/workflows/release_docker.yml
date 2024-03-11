@@ -24,7 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: leolitaly/alist
+          images: leolitaly/casadolce
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
