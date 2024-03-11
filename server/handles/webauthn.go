@@ -21,7 +21,7 @@ import (
 func BeginAuthnLogin(c *gin.Context) {
 	enabled := setting.GetBool(conf.WebauthnLoginEnabled)
 	if !enabled {
-		common.ErrorStrResp(c, "WebAuthn is not enabled", 403)
+		common.ErrorStrResp(c, "WebAuthn 当前未启用", 403)
 		return
 	}
 	authnInstance, err := authn.NewAuthnInstance(c.Request)
@@ -44,7 +44,7 @@ func BeginAuthnLogin(c *gin.Context) {
 		options, sessionData, err = authnInstance.BeginDiscoverableLogin()
 	}
 	if err != nil {
-		common.ErrorResp(c, err, 400)
+		common.ErrorStrResp(c, "用户名验证失败", 400)
 		return
 	}
 
@@ -62,7 +62,7 @@ func BeginAuthnLogin(c *gin.Context) {
 func FinishAuthnLogin(c *gin.Context) {
 	enabled := setting.GetBool(conf.WebauthnLoginEnabled)
 	if !enabled {
-		common.ErrorStrResp(c, "WebAuthn is not enabled", 403)
+		common.ErrorStrResp(c, "WebAuthn 当前未启用", 403)
 		return
 	}
 	authnInstance, err := authn.NewAuthnInstance(c.Request)
@@ -107,7 +107,7 @@ func FinishAuthnLogin(c *gin.Context) {
 		}, sessionData, c.Request)
 	}
 	if err != nil {
-		common.ErrorResp(c, err, 400)
+		common.ErrorStrResp(c, "用户名验证失败", 400)
 		return
 	}
 

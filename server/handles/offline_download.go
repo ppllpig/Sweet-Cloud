@@ -18,7 +18,7 @@ type SetAria2Req struct {
 func SetAria2(c *gin.Context) {
 	var req SetAria2Req
 	if err := c.ShouldBind(&req); err != nil {
-		common.ErrorResp(c, err, 400)
+		common.ErrorStrResp(c, "Aria2配置参数错误", 400)
 		return
 	}
 	items := []model.SettingItem{
@@ -26,13 +26,13 @@ func SetAria2(c *gin.Context) {
 		{Key: conf.Aria2Secret, Value: req.Secret, Type: conf.TypeString, Group: model.OFFLINE_DOWNLOAD, Flag: model.PRIVATE},
 	}
 	if err := op.SaveSettingItems(items); err != nil {
-		common.ErrorResp(c, err, 500)
+		common.ErrorStrResp(c, "Aria2配置参数错误", 500)
 		return
 	}
 	_tool, err := tool.Tools.Get("aria2")
 	version, err := _tool.Init()
 	if err != nil {
-		common.ErrorResp(c, err, 500)
+		common.ErrorStrResp(c, "Aria2配置参数错误", 500)
 		return
 	}
 	common.SuccessResp(c, version)
@@ -46,7 +46,7 @@ type SetQbittorrentReq struct {
 func SetQbittorrent(c *gin.Context) {
 	var req SetQbittorrentReq
 	if err := c.ShouldBind(&req); err != nil {
-		common.ErrorResp(c, err, 400)
+		common.ErrorStrResp(c, "Qbittorrent配置参数错误", 400)
 		return
 	}
 	items := []model.SettingItem{
@@ -54,16 +54,16 @@ func SetQbittorrent(c *gin.Context) {
 		{Key: conf.QbittorrentSeedtime, Value: req.Seedtime, Type: conf.TypeNumber, Group: model.OFFLINE_DOWNLOAD, Flag: model.PRIVATE},
 	}
 	if err := op.SaveSettingItems(items); err != nil {
-		common.ErrorResp(c, err, 500)
+		common.ErrorStrResp(c, "Qbittorrent配置参数错误", 500)
 		return
 	}
 	_tool, err := tool.Tools.Get("qBittorrent")
 	if err != nil {
-		common.ErrorResp(c, err, 500)
+		common.ErrorStrResp(c, "Qbittorrent配置参数错误", 500)
 		return
 	}
 	if _, err := _tool.Init(); err != nil {
-		common.ErrorResp(c, err, 500)
+		common.ErrorStrResp(c, "Qbittorrent配置参数错误", 500)
 		return
 	}
 	common.SuccessResp(c, "ok")

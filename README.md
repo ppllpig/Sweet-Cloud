@@ -1,140 +1,40 @@
-<div align="center">
-  <a href="https://alist.nn.ci"><img height="100px" alt="logo" src="https://cdn.jsdelivr.net/gh/alist-org/logo@main/logo.svg"/></a>
-  <p><em>🗂️A file list program that supports multiple storages, powered by Gin and Solidjs.</em></p>
-<div>
-  <a href="https://goreportcard.com/report/github.com/alist-org/alist/v3">
-    <img src="https://goreportcard.com/badge/github.com/alist-org/alist/v3" alt="latest version" />
-  </a>
-  <a href="https://github.com/Xhofe/alist/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/Xhofe/alist" alt="License" />
-  </a>
-  <a href="https://github.com/Xhofe/alist/actions?query=workflow%3ABuild">
-    <img src="https://img.shields.io/github/actions/workflow/status/Xhofe/alist/build.yml?branch=main" alt="Build status" />
-  </a>
-  <a href="https://github.com/Xhofe/alist/releases">
-    <img src="https://img.shields.io/github/release/Xhofe/alist" alt="latest version" />
-  </a>
-  <a title="Crowdin" target="_blank" href="https://crwd.in/alist">
-    <img src="https://badges.crowdin.net/alist/localized.svg">
-  </a>
-</div>
-<div>
-  <a href="https://github.com/Xhofe/alist/discussions">
-    <img src="https://img.shields.io/github/discussions/Xhofe/alist?color=%23ED8936" alt="discussions" />
-  </a>
-  <a href="https://discord.gg/F4ymsH4xv2">
-    <img src="https://img.shields.io/discord/1018870125102895134?logo=discord" alt="discussions" />
-  </a>
-  <a href="https://github.com/Xhofe/alist/releases">
-    <img src="https://img.shields.io/github/downloads/Xhofe/alist/total?color=%239F7AEA&logo=github" alt="Downloads" />
-  </a>
-  <a href="https://hub.docker.com/r/xhofe/alist">
-    <img src="https://img.shields.io/docker/pulls/xhofe/alist?color=%2348BB78&logo=docker&label=pulls" alt="Downloads" />
-  </a>
-  <a href="https://alist.nn.ci/guide/sponsor.html">
-    <img src="https://img.shields.io/badge/%24-sponsor-F87171.svg" alt="sponsor" />
-  </a>
-</div>
-</div>
+## 个性魔改美化定制版
+### 2024.03.11
+1. 完善界面，登录界面提示语汉化
+13. 启动程序提示语修改。
+14. 后台管理界面小修改。
+15. 登录界面美化。
+16. 登录用户名密码错误及游客禁用提示汉化。
+17. 补全其它部分未汉化界面。
+18. 返回顶部按钮移至左下角，方便单手操作。
+19. 中间工具栏透明
 
----
+### 2024.03.10
+1. 左上角Logo稍微加大至52px。
+2. 搜索图标更换，视图切换玻璃模糊。
+3. 玻璃模糊搜索界面和左侧树状目录。
+4. 去掉所有界面里的颜色模式切换。
+5. 去掉所有界面里的语言切换。
+6. 自动颜色模式切换包括背景色和状态栏颜色。
+7. 去掉登录界面语言，颜色模式。
+8. 去掉登录界面标题的“登录到”文字。
+9. 状态栏主题颜色延伸。
+10. 去掉全局Readme，避免影响美观。
+11. 所有弹出窗口都玻璃模糊。
+12. 去除通知关闭按钮。
+20. 其它CSS小修改。
 
-English | [中文](./README_cn.md)| [日本語](./README_ja.md) | [Contributing](./CONTRIBUTING.md) | [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md)
+## Docker
+docker pull leolitaly/alist:latest
 
-## Features
+预览图
+<img width="1622" alt="截屏2024-03-09 23 08 31" src="https://github.com/li-peifeng/alist-web/assets/103113557/9ae46856-236f-47ed-a807-9f253b6e754b">
+<img width="1622" alt="截屏2024-03-09 23 08 49" src="https://github.com/li-peifeng/alist-web/assets/103113557/995bd81b-4d19-4842-86fd-403fdae511b1">
+<img width="1622" alt="截屏2024-03-09 23 09 44" src="https://github.com/li-peifeng/alist-web/assets/103113557/b504be1f-964f-4e99-8ae8-d7ffa04779ac">
+<img width="1622" alt="截屏2024-03-09 23 09 51" src="https://github.com/li-peifeng/alist-web/assets/103113557/190a1ace-5f1f-4bc4-9e7d-276fddc5c0c5">
+<img width="1622" alt="截屏2024-03-09 23 10 07" src="https://github.com/li-peifeng/alist-web/assets/103113557/dbe5ba84-62dc-4787-86a7-2ec3b05a3101">
+<img width="1622" alt="截屏2024-03-09 23 10 23" src="https://github.com/li-peifeng/alist-web/assets/103113557/f2ad63b8-800f-4753-92ac-199e611aa141">
+<img width="1622" alt="截屏2024-03-09 23 10 46" src="https://github.com/li-peifeng/alist-web/assets/103113557/07c9ba20-85ce-4cd3-baec-29f96e5d700a">
+<img width="1622" alt="截屏2024-03-09 23 10 53" src="https://github.com/li-peifeng/alist-web/assets/103113557/db7767e6-cc2c-4871-952d-48cc16d4c58a">
+<img width="1622" alt="截屏2024-03-09 23 10 59" src="https://github.com/li-peifeng/alist-web/assets/103113557/d7cf24fa-89a9-4004-b6de-13963da8a2de">
 
-- [x] Multiple storages
-    - [x] Local storage
-    - [x] [Aliyundrive](https://www.alipan.com/)
-    - [x] OneDrive / Sharepoint ([global](https://www.office.com/), [cn](https://portal.partner.microsoftonline.cn),de,us)
-    - [x] [189cloud](https://cloud.189.cn) (Personal, Family)
-    - [x] [GoogleDrive](https://drive.google.com/)
-    - [x] [123pan](https://www.123pan.com/)
-    - [x] FTP / SFTP
-    - [x] [PikPak](https://www.mypikpak.com/)
-    - [x] [S3](https://aws.amazon.com/s3/)
-    - [x] [Seafile](https://seafile.com/)
-    - [x] [UPYUN Storage Service](https://www.upyun.com/products/file-storage)
-    - [x] WebDav(Support OneDrive/SharePoint without API)
-    - [x] Teambition([China](https://www.teambition.com/ ),[International](https://us.teambition.com/ ))
-    - [x] [Mediatrack](https://www.mediatrack.cn/)
-    - [x] [139yun](https://yun.139.com/) (Personal, Family)
-    - [x] [YandexDisk](https://disk.yandex.com/)
-    - [x] [BaiduNetdisk](http://pan.baidu.com/)
-    - [x] [Terabox](https://www.terabox.com/main)
-    - [x] [UC](https://drive.uc.cn)
-    - [x] [Quark](https://pan.quark.cn)
-    - [x] [Thunder](https://pan.xunlei.com)
-    - [x] [Lanzou](https://www.lanzou.com/)
-    - [x] [ILanzou](https://www.ilanzou.com/)
-    - [x] [Aliyundrive share](https://www.alipan.com/)
-    - [x] [Google photo](https://photos.google.com/)
-    - [x] [Mega.nz](https://mega.nz)
-    - [x] [Baidu photo](https://photo.baidu.com/)
-    - [x] SMB
-    - [x] [115](https://115.com/)
-    - [X] Cloudreve
-    - [x] [Dropbox](https://www.dropbox.com/)
-    - [x] [FeijiPan](https://www.feijipan.com/)
-- [x] Easy to deploy and out-of-the-box
-- [x] File preview (PDF, markdown, code, plain text, ...)
-- [x] Image preview in gallery mode
-- [x] Video and audio preview, support lyrics and subtitles
-- [x] Office documents preview (docx, pptx, xlsx, ...)
-- [x] `README.md` preview rendering
-- [x] File permalink copy and direct file download
-- [x] Dark mode
-- [x] I18n
-- [x] Protected routes (password protection and authentication)
-- [x] WebDav (see https://alist.nn.ci/guide/webdav.html for details)
-- [x] [Docker Deploy](https://hub.docker.com/r/xhofe/alist)
-- [x] Cloudflare Workers proxy
-- [x] File/Folder package download
-- [x] Web upload(Can allow visitors to upload), delete, mkdir, rename, move and copy
-- [x] Offline download
-- [x] Copy files between two storage
-- [x] Multi-thread downloading acceleration for single-thread download/stream
-
-## Document
-
-<https://alist.nn.ci/>
-
-## Demo
-
-<https://al.nn.ci>
-
-## Discussion
-
-Please go to our [discussion forum](https://github.com/Xhofe/alist/discussions) for general questions, **issues are for bug reports and feature requests only.**
-
-## Sponsor
-
-AList is an open-source software, if you happen to like this project and want me to keep going, please consider sponsoring me or providing a single donation! Thanks for all the love and support:
-https://alist.nn.ci/guide/sponsor.html
-
-### Special sponsors
-
-- [VidHub](https://okaapps.com/product/1659622164?ref=alist) - An elegant cloud video player within the Apple ecosystem. Support for iPhone, iPad, Mac, and Apple TV.
-- [亚洲云](https://www.asiayun.com/aff/QQCOOQKZ) - 高防服务器|服务器租用|福州高防|广东电信|香港服务器|美国服务器|海外服务器 - 国内靠谱的企业级云计算服务提供商 (sponsored Chinese API server)
-- [找资源](https://zhaoziyuan.pw/) - 阿里云盘资源搜索引擎
-
-## Contributors
-
-Thanks goes to these wonderful people:
-
-[![Contributors](http://contrib.nn.ci/api?repo=alist-org/alist&repo=alist-org/alist-web&repo=alist-org/docs)](https://github.com/alist-org/alist/graphs/contributors)
-
-## License
-
-The `AList` is open-source software licensed under the AGPL-3.0 license.
-
-## Disclaimer
-- This program is a free and open source project. It is designed to share files on the network disk, which is convenient for downloading and learning Golang. Please abide by relevant laws and regulations when using it, and do not abuse it;
-- This program is implemented by calling the official sdk/interface, without destroying the official interface behavior;
-- This program only does 302 redirect/traffic forwarding, and does not intercept, store, or tamper with any user data;
-- Before using this program, you should understand and bear the corresponding risks, including but not limited to account ban, download speed limit, etc., which is none of this program's business;
-- If there is any infringement, please contact me by [email](mailto:i@nn.ci), and it will be dealt with in time.
-
----
-
-> [@Blog](https://nn.ci/) · [@GitHub](https://github.com/Xhofe) · [@TelegramGroup](https://t.me/alist_chat) · [@Discord](https://discord.gg/F4ymsH4xv2)
