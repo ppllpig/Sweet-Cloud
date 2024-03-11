@@ -22,7 +22,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: leolitaly/alist
+          images: leolitaly/casadolce
 
       - uses: actions/setup-go@v4
         with:
