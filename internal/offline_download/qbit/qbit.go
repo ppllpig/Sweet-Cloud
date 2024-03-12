@@ -19,7 +19,7 @@ func (a *QBittorrent) Run(task *tool.DownloadTask) error {
 }
 
 func (a *QBittorrent) Name() string {
-	return "qBittorrent"
+	return "qBittorrent下载器"
 }
 
 func (a *QBittorrent) Items() []model.SettingItem {

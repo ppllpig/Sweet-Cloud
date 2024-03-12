@@ -17,7 +17,7 @@ type SimpleHttp struct {
 }
 
 func (s SimpleHttp) Name() string {
-	return "SimpleHttp"
+	return "SimpleHttp下载器"
 }
 
 func (s SimpleHttp) Items() []model.SettingItem {
