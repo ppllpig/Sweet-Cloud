@@ -65,7 +65,7 @@ func UpdateIndex() {
 	mainColor := setting.GetStr(conf.MainColor)
 	conf.ManageHtml = conf.RawIndexHtml
 	replaceMap1 := map[string]string{
-		"https://jsd.nn.ci/gh/alist-org/logo@main/logo.svg": favicon,
+		"https://github.com/li-peifeng/li-peifeng.github.io/raw/main/logo.svg": favicon,
 		"Loading...":            title,
 		"main_color: undefined": fmt.Sprintf("main_color: '%s'", mainColor),
 	}
@@ -104,7 +104,7 @@ func Static(r *gin.RouterGroup, noRoute func(handlers ...gin.HandlerFunc)) {
 	noRoute(func(c *gin.Context) {
 		c.Header("Content-Type", "text/html")
 		c.Status(200)
-		if strings.HasPrefix(c.Request.URL.Path, "/@manage") {
+		if strings.HasPrefix(c.Request.URL.Path, "/@amore") {
 			_, _ = c.Writer.WriteString(conf.ManageHtml)
 		} else {
 			_, _ = c.Writer.WriteString(conf.IndexHtml)
