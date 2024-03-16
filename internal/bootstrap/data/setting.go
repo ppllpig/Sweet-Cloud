@@ -83,7 +83,7 @@ func InitialSettings() []model.SettingItem {
 		{Key: conf.VERSION, Value: conf.Version, Type: conf.TypeString, Group: model.SITE, Flag: model.READONLY},
 		//{Key: conf.ApiUrl, Value: "", Type: conf.TypeString, Group: model.SITE},
 		//{Key: conf.BasePath, Value: "", Type: conf.TypeString, Group: model.SITE},
-		{Key: conf.SiteTitle, Value: "AList", Type: conf.TypeString, Group: model.SITE},
+		{Key: conf.SiteTitle, Value: "DolceCasa", Type: conf.TypeString, Group: model.SITE},
 		{Key: conf.Announcement, Value: "Welcome To DolceCasa", Type: conf.TypeText, Group: model.SITE},
 		{Key: "pagination_type", Value: "all", Type: conf.TypeSelect, Options: "all,pagination,load_more,auto_load_more", Group: model.SITE},
 		{Key: "default_page_size", Value: "30", Type: conf.TypeNumber, Group: model.SITE},
@@ -94,7 +94,7 @@ func InitialSettings() []model.SettingItem {
 		{Key: conf.Logo, Value: "https://github.com/li-peifeng/li-peifeng.github.io/raw/main/logo.svg", Type: conf.TypeText, Group: model.STYLE},
 		{Key: conf.Favicon, Value: "https://github.com/li-peifeng/li-peifeng.github.io/raw/main/favicon.ico", Type: conf.TypeString, Group: model.STYLE},
 		{Key: conf.MainColor, Value: "#1890ff", Type: conf.TypeString, Group: model.STYLE},
-		{Key: "home_icon", Value: "🏠", Type: conf.TypeString, Group: model.STYLE},
+		{Key: "home_icon", Value: "🎀", Type: conf.TypeString, Group: model.STYLE},
 		{Key: "home_container", Value: "max_980px", Type: conf.TypeSelect, Options: "max_980px,hope_container", Group: model.STYLE},
 		{Key: "settings_layout", Value: "list", Type: conf.TypeSelect, Options: "list,responsive", Group: model.STYLE},
 		// preview settings
