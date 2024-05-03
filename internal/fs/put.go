@@ -36,7 +36,7 @@ var UploadTaskManager *tache.Manager[*UploadTask]
 func putAsTask(dstDirPath string, file model.FileStreamer) (tache.TaskWithInfo, error) {
 	storage, dstDirActualPath, err := op.GetStorageAndActualPath(dstDirPath)
 	if err != nil {
-		return nil, errors.WithMessage(err, "failed get storage")
+		return nil, errors.WithMessage(err, "获取存储失败")
 	}
 	if storage.Config().NoUpload {
 		return nil, errors.WithStack(errs.UploadNotSupported)
@@ -62,7 +62,7 @@ func putAsTask(dstDirPath string, file model.FileStreamer) (tache.TaskWithInfo, 
 func putDirectly(ctx context.Context, dstDirPath string, file model.FileStreamer, lazyCache ...bool) error {
 	storage, dstDirActualPath, err := op.GetStorageAndActualPath(dstDirPath)
 	if err != nil {
-		return errors.WithMessage(err, "failed get storage")
+		return errors.WithMessage(err, "获取存储失败")
 	}
 	if storage.Config().NoUpload {
 		return errors.WithStack(errs.UploadNotSupported)
