@@ -44,5 +44,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sweetcloud_${{ env.SHA }}
+          name: Sweet-Cloud_${{ env.SHA }}
           path: dist
