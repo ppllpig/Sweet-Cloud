@@ -22,7 +22,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: leolitaly/Sweet-Cloud
+          images: leolitaly/sweet-cloud
 
       - uses: actions/setup-go@v5
       - uses: actions/setup-go@v5

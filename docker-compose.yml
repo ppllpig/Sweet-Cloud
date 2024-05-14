@@ -3,7 +3,7 @@ services:
   alist:
     restart: always
     volumes:
-      - "/etc/Sweet-Cloud:/opt/alist/data"
+      - "/etc/sweet-cloud:/opt/alist/data"
     ports:
       - "5244:5244"
       - "5245:5245"
@@ -13,4 +13,4 @@ services:
       - UMASK=022
       - TZ=UTC
     container_name: alist
-    image: "leolitaly/Sweet-Cloud:latest"
+    image: "leolitaly/sweet-cloud:latest"
