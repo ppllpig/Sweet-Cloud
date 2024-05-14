@@ -2,9 +2,9 @@ name: build_docker
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -22,12 +22,12 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: leolitaly/dolcecasa
+          images: leolitaly/sweetcloud
 
       - uses: actions/setup-go@v5
       - uses: actions/setup-go@v5
         with:
-          go-version: 'stable'
+          go-version: "stable"
 
       - name: Cache Musl
         id: cache-musl
@@ -45,7 +45,7 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-        
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 

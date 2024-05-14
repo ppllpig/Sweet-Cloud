@@ -2,9 +2,9 @@ name: build
 
 on:
   push:
-    branches: [ 'main' ]
+    branches: ["main"]
   pull_request:
-    branches: [ 'main' ]
+    branches: ["main"]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         platform: [ubuntu-latest]
-        go-version: [ '1.21' ]
+        go-version: ["1.21"]
     name: Build
     runs-on: ${{ matrix.platform }}
     steps:
@@ -44,5 +44,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dolcecasa_${{ env.SHA }}
+          name: sweetcloud_${{ env.SHA }}
           path: dist
