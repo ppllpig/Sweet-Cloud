@@ -18,7 +18,7 @@ func link(ctx context.Context, path string, args model.LinkArgs) (*model.Link, m
 	}
 	l, obj, err := op.Link(ctx, storage, actualPath, args)
 	if err != nil {
-		return nil, nil, errors.WithMessage(err, "failed link")
+		return nil, nil, errors.WithMessage(err, "链接获取失败")
 	}
 	if l.URL != "" && !strings.HasPrefix(l.URL, "http://") && !strings.HasPrefix(l.URL, "https://") {
 		if c, ok := ctx.(*gin.Context); ok {
