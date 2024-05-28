@@ -8,7 +8,7 @@ import (
 
 func TestErrs(t *testing.T) {
 
-	err1 := NewErr(StorageNotFound, "请先添加一个存储")
+	err1 := NewErr(StorageNotFound, "please add a storage first")
 	t.Logf("err1: %s", err1)
 	if !errors.Is(err1, StorageNotFound) {
 		t.Errorf("failed, expect %s is %s", err1, StorageNotFound)
