@@ -3,5 +3,5 @@ package errs
 import "errors"
 
 var (
-	PermissionDenied = errors.New("permission denied")
+	PermissionDenied = errors.New("权限不够")
 )

@@ -25,7 +25,7 @@ func (t *TransferTask) Run() error {
 	// check dstDir again
 	storage, dstDirActualPath, err := op.GetStorageAndActualPath(t.dstDirPath)
 	if err != nil {
-		return errors.WithMessage(err, "failed get storage")
+		return errors.WithMessage(err, "获取存储失败")
 	}
 	mimetype := utils.GetMimeType(t.file.Path)
 	rc, err := t.file.GetReadCloser()
