@@ -157,5 +157,5 @@ func (u *User) WebAuthnCredentials() []webauthn.Credential {
 }
 
 func (u *User) WebAuthnIcon() string {
-	return "https://raw.githubusercontent.com/li-peifeng/li-peifeng.github.io/01bd91e1dad15074811fcb8630ff8b0128a36c6a/logo.svg"
+	return "https://alist.nn.ci/logo.svg"
 }

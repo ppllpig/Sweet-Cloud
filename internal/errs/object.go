@@ -7,9 +7,9 @@ import (
 )
 
 var (
-	ObjectNotFound = errors.New("未找到对象")
-	NotFolder      = errors.New("不是文件夹")
-	NotFile        = errors.New("不是文件")
+	ObjectNotFound = errors.New("object not found")
+	NotFolder      = errors.New("not a folder")
+	NotFile        = errors.New("not a file")
 )
 
 func IsObjectNotFound(err error) bool {

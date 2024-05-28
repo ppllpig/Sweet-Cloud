@@ -16,8 +16,8 @@ import (
 
 var loginCache = cache.NewMemCache[int]()
 var (
-	defaultDuration = time.Minute * 30
-	defaultTimes    = 30
+	defaultDuration = time.Minute * 5
+	defaultTimes    = 5
 )
 
 type LoginReq struct {
@@ -30,7 +30,7 @@ type LoginReq struct {
 func Login(c *gin.Context) {
 	var req LoginReq
 	if err := c.ShouldBind(&req); err != nil {
-		common.ErrorStrResp(c, "您填写的信息不完整", 400)
+		common.ErrorResp(c, err, 400)
 		return
 	}
 	req.Password = model.StaticHash(req.Password)
@@ -41,7 +41,7 @@ func Login(c *gin.Context) {
 func LoginHash(c *gin.Context) {
 	var req LoginReq
 	if err := c.ShouldBind(&req); err != nil {
-		common.ErrorStrResp(c, "您填写的信息不完整", 400)
+		common.ErrorResp(c, err, 400)
 		return
 	}
 	loginHash(c, &req)
@@ -52,27 +52,27 @@ func loginHash(c *gin.Context, req *LoginReq) {
 	ip := c.ClientIP()
 	count, ok := loginCache.Get(ip)
 	if ok && count >= defaultTimes {
-		common.ErrorStrResp(c, "您进行了太多次失败登录，请稍后再试", 429)
+		common.ErrorStrResp(c, "Too many unsuccessful sign-in attempts have been made using an incorrect username or password, Try again later.", 429)
 		loginCache.Expire(ip, defaultDuration)
 		return
 	}
 	// check username
 	user, err := op.GetUserByName(req.Username)
 	if err != nil {
-		common.ErrorStrResp(c, "用户名错误，请重试", 400)
+		common.ErrorResp(c, err, 400)
 		loginCache.Set(ip, count+1)
 		return
 	}
 	// validate password hash
 	if err := user.ValidatePwdStaticHash(req.Password); err != nil {
-		common.ErrorStrResp(c, "密码错误，请重试", 400)
+		common.ErrorResp(c, err, 400)
 		loginCache.Set(ip, count+1)
 		return
 	}
 	// check 2FA
 	if user.OtpSecret != "" {
 		if !totp.Validate(req.OtpCode, user.OtpSecret) {
-			common.ErrorStrResp(c, "无效的2FA代码", 402)
+			common.ErrorStrResp(c, "Invalid 2FA code", 402)
 			loginCache.Set(ip, count+1)
 			return
 		}
@@ -109,7 +109,7 @@ func CurrentUser(c *gin.Context) {
 func UpdateCurrent(c *gin.Context) {
 	var req model.User
 	if err := c.ShouldBind(&req); err != nil {
-		common.ErrorStrResp(c, "登录失败", 400)
+		common.ErrorResp(c, err, 400)
 		return
 	}
 	user := c.MustGet("user").(*model.User)
@@ -128,11 +128,11 @@ func UpdateCurrent(c *gin.Context) {
 func Generate2FA(c *gin.Context) {
 	user := c.MustGet("user").(*model.User)
 	if user.IsGuest() {
-		common.ErrorStrResp(c, "访客用户无法生成2FA代码", 403)
+		common.ErrorStrResp(c, "Guest user can not generate 2FA code", 403)
 		return
 	}
 	key, err := totp.Generate(totp.GenerateOpts{
-		Issuer:      "CasaDolce",
+		Issuer:      "Alist",
 		AccountName: user.Username,
 	})
 	if err != nil {
@@ -167,11 +167,11 @@ func Verify2FA(c *gin.Context) {
 	}
 	user := c.MustGet("user").(*model.User)
 	if user.IsGuest() {
-		common.ErrorStrResp(c, "访客用户无法生成2FA代码", 403)
+		common.ErrorStrResp(c, "Guest user can not generate 2FA code", 403)
 		return
 	}
 	if !totp.Validate(req.Code, req.Secret) {
-		common.ErrorStrResp(c, "无效的2FA代码", 400)
+		common.ErrorStrResp(c, "Invalid 2FA code", 400)
 		return
 	}
 	user.OtpSecret = req.Secret

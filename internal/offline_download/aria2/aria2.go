@@ -28,7 +28,7 @@ func (a *Aria2) Run(task *tool.DownloadTask) error {
 }
 
 func (a *Aria2) Name() string {
-	return "Aria2下载器"
+	return "aria2"
 }
 
 func (a *Aria2) Items() []model.SettingItem {

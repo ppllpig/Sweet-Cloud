@@ -38,18 +38,18 @@ func ParseToken(tokenString string) (*UserClaims, error) {
 	if err != nil {
 		if ve, ok := err.(*jwt.ValidationError); ok {
 			if ve.Errors&jwt.ValidationErrorMalformed != 0 {
-				return nil, errors.New("这不是一个令牌")
+				return nil, errors.New("that's not even a token")
 			} else if ve.Errors&jwt.ValidationErrorExpired != 0 {
-				return nil, errors.New("令牌已过期")
+				return nil, errors.New("token is expired")
 			} else if ve.Errors&jwt.ValidationErrorNotValidYet != 0 {
-				return nil, errors.New("令牌尚未激活")
+				return nil, errors.New("token not active yet")
 			} else {
-				return nil, errors.New("无法处理该令牌")
+				return nil, errors.New("couldn't handle this token")
 			}
 		}
 	}
 	if claims, ok := token.Claims.(*UserClaims); ok && token.Valid {
 		return claims, nil
 	}
-	return nil, errors.New("无法处理该令牌")
+	return nil, errors.New("couldn't handle this token")
 }

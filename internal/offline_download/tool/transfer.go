@@ -25,12 +25,12 @@ func (t *TransferTask) Run() error {
 	// check dstDir again
 	storage, dstDirActualPath, err := op.GetStorageAndActualPath(t.dstDirPath)
 	if err != nil {
-		return errors.WithMessage(err, "获取存储失败")
+		return errors.WithMessage(err, "failed get storage")
 	}
 	mimetype := utils.GetMimeType(t.file.Path)
 	rc, err := t.file.GetReadCloser()
 	if err != nil {
-		return errors.Wrapf(err, "打开文件失败 %s", t.file.Path)
+		return errors.Wrapf(err, "failed to open file %s", t.file.Path)
 	}
 	s := &stream.FileStream{
 		Ctx: nil,
