@@ -20,11 +20,11 @@ func makeDir(ctx context.Context, path string, lazyCache ...bool) error {
 func move(ctx context.Context, srcPath, dstDirPath string, lazyCache ...bool) error {
 	srcStorage, srcActualPath, err := op.GetStorageAndActualPath(srcPath)
 	if err != nil {
-		return errors.WithMessage(err, "failed get src storage")
+		return errors.WithMessage(err, "源存储获取失败")
 	}
 	dstStorage, dstDirActualPath, err := op.GetStorageAndActualPath(dstDirPath)
 	if err != nil {
-		return errors.WithMessage(err, "failed get dst storage")
+		return errors.WithMessage(err, "目的地存储获取失败")
 	}
 	if srcStorage.GetStorage() != dstStorage.GetStorage() {
 		return errors.WithStack(errs.MoveBetweenTwoStorages)
