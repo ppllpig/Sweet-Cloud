@@ -107,7 +107,7 @@ func initStorage(ctx context.Context, storage model.Storage, storageDriver drive
 func EnableStorage(ctx context.Context, id uint) error {
 	storage, err := db.GetStorageById(id)
 	if err != nil {
-		return errors.WithMessage(err, "获取存储失败")
+		return errors.WithMessage(err, "failed get storage")
 	}
 	if !storage.Disabled {
 		return errors.Errorf("this storage have enabled")
@@ -127,7 +127,7 @@ func EnableStorage(ctx context.Context, id uint) error {
 func DisableStorage(ctx context.Context, id uint) error {
 	storage, err := db.GetStorageById(id)
 	if err != nil {
-		return errors.WithMessage(err, "获取存储失败")
+		return errors.WithMessage(err, "failed get storage")
 	}
 	if storage.Disabled {
 		return errors.Errorf("this storage have disabled")
@@ -194,7 +194,7 @@ func UpdateStorage(ctx context.Context, storage model.Storage) error {
 func DeleteStorageById(ctx context.Context, id uint) error {
 	storage, err := db.GetStorageById(id)
 	if err != nil {
-		return errors.WithMessage(err, "获取存储失败")
+		return errors.WithMessage(err, "failed get storage")
 	}
 	if !storage.Disabled {
 		storageDriver, err := GetStorageByMountPath(storage.MountPath)

@@ -44,7 +44,7 @@ func putAsTask(dstDirPath string, file model.FileStreamer) (tache.TaskWithInfo, 
 	if file.NeedStore() {
 		_, err := file.CacheFullInTempFile()
 		if err != nil {
-			return nil, errors.Wrapf(err, "缓存文件创建失败")
+			return nil, errors.Wrapf(err, "failed to create temp file")
 		}
 		//file.SetReader(tempFile)
 		//file.SetTmpFile(tempFile)

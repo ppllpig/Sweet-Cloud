@@ -33,7 +33,7 @@ func get(ctx context.Context, path string) (model.Obj, error) {
 				IsFolder: true,
 			}, nil
 		}
-		return nil, errors.WithMessage(err, "获取存储失败")
+		return nil, errors.WithMessage(err, "failed get storage")
 	}
 	return op.Get(ctx, storage, actualPath)
 }

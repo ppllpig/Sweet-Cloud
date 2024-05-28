@@ -43,7 +43,7 @@ func AddURL(ctx context.Context, args *AddURLArgs) (tache.TaskWithInfo, error) {
 	// check storage
 	storage, dstDirActualPath, err := op.GetStorageAndActualPath(args.DstDirPath)
 	if err != nil {
-		return nil, errors.WithMessage(err, "获取存储失败")
+		return nil, errors.WithMessage(err, "failed get storage")
 	}
 	// check is it could upload
 	if storage.Config().NoUpload {
