@@ -16,7 +16,7 @@ var (
 	UploadNotSupported     = errors.New("upload not supported")
 
 	MetaNotFound     = errors.New("meta not found")
-	StorageNotFound  = errors.New("storage not found")
+	StorageNotFound  = errors.New("找不到存储")
 	StreamIncomplete = errors.New("upload/download stream incomplete, possible network issue")
 	StreamPeekFail   = errors.New("StreamPeekFail")
 )

@@ -20,7 +20,7 @@ func GetUserByRole(role int) (*model.User, error) {
 func GetUserByName(username string) (*model.User, error) {
 	user := model.User{Username: username}
 	if err := db.Where(user).First(&user).Error; err != nil {
-		return nil, errors.Wrapf(err, "failed find user")
+		return nil, errors.Wrapf(err, "查找不到用户")
 	}
 	return &user, nil
 }
@@ -55,7 +55,7 @@ func GetUsers(pageIndex, pageSize int) (users []model.User, count int64, err err
 		return nil, 0, errors.Wrapf(err, "failed get users count")
 	}
 	if err := userDB.Offset((pageIndex - 1) * pageSize).Limit(pageSize).Find(&users).Error; err != nil {
-		return nil, 0, errors.Wrapf(err, "failed get find users")
+		return nil, 0, errors.Wrapf(err, "查找用户失败")
 	}
 	return users, count, nil
 }
