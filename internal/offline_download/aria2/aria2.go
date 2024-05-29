@@ -53,7 +53,7 @@ func (a *Aria2) Init() (string, error) {
 	}
 	a.client = c
 	log.Infof("using aria2 version: %s", version.Version)
-	return fmt.Sprintf("aria2 version: %s", version.Version), nil
+	return fmt.Sprintf("%s", version.Version), nil
 }
 
 func (a *Aria2) IsReady() bool {
