@@ -23,7 +23,7 @@ type CopyTask struct {
 }
 
 func (t *CopyTask) GetName() string {
-	return fmt.Sprintf("copy [%s](%s) to [%s](%s)",
+	return fmt.Sprintf("复制 [%s](%s) 到 [%s](%s)",
 		t.srcStorage.GetStorage().MountPath, t.srcObjPath, t.dstStorage.GetStorage().MountPath, t.dstDirPath)
 }
 
