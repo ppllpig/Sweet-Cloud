@@ -77,7 +77,7 @@ func StopIndex(c *gin.Context) {
 		return
 	}
 	search.Quit <- struct{}{}
-	common.SuccessStrResp(c, "索引停止成功")
+	common.SuccessResp(c, "索引停止成功")
 }
 
 func ClearIndex(c *gin.Context) {
