@@ -82,7 +82,9 @@ func SuccessResp(c *gin.Context, data ...interface{}) {
 }
 
 func SuccessStrResp(c *gin.Context, str string) {
-    // 使用 interface{} 作为 Resp 的具体类型
+    if str == "" {
+        str = "执行成功"
+    }
     c.JSON(200, Resp[interface{}]{
         Code:    200,
         Message: str,
