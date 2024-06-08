@@ -20,7 +20,7 @@ type UpdateIndexReq struct {
 
 func BuildIndex(c *gin.Context) {
 	if search.Running.Load() {
-		common.ErrorStrResp(c, "index is running", 400)
+		common.ErrorStrResp(c, "索引正在运行", 400)
 		return
 	}
 	go func() {
@@ -36,7 +36,7 @@ func BuildIndex(c *gin.Context) {
 			log.Errorf("build index error: %+v", err)
 		}
 	}()
-	common.SuccessResp(c)
+	common.SuccessResp(c, "重建索引成功")
 }
 
 func UpdateIndex(c *gin.Context) {
@@ -46,11 +46,11 @@ func UpdateIndex(c *gin.Context) {
 		return
 	}
 	if search.Running.Load() {
-		common.ErrorStrResp(c, "index is running", 400)
+		common.ErrorStrResp(c, "索引正在运行", 400)
 		return
 	}
 	if !search.Config(c).AutoUpdate {
-		common.ErrorStrResp(c, "update is not supported for current index", 400)
+		common.ErrorStrResp(c, "当前索引不支持更新", 400)
 		return
 	}
 	go func() {
@@ -68,21 +68,21 @@ func UpdateIndex(c *gin.Context) {
 			log.Errorf("update index error: %+v", err)
 		}
 	}()
-	common.SuccessResp(c)
+	common.SuccessResp(c, "索引更新成功")
 }
 
 func StopIndex(c *gin.Context) {
 	if !search.Running.Load() {
-		common.ErrorStrResp(c, "index is not running", 400)
+		common.ErrorStrResp(c, "当前索引未运行", 400)
 		return
 	}
 	search.Quit <- struct{}{}
-	common.SuccessResp(c)
+	common.SuccessResp(c, "索引停止成功")
 }
 
 func ClearIndex(c *gin.Context) {
 	if search.Running.Load() {
-		common.ErrorStrResp(c, "index is running", 400)
+		common.ErrorStrResp(c, "索引进行中", 400)
 		return
 	}
 	search.Clear(c)
@@ -92,7 +92,7 @@ func ClearIndex(c *gin.Context) {
 		LastDoneTime: nil,
 		Error:        "",
 	})
-	common.SuccessResp(c)
+	common.SuccessResp(c, "索引清除成功")
 }
 
 func GetProgress(c *gin.Context) {
