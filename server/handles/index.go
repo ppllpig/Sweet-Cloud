@@ -36,7 +36,7 @@ func BuildIndex(c *gin.Context) {
 			log.Errorf("build index error: %+v", err)
 		}
 	}()
-	common.SuccessStrResp(c, "重建索引成功")
+	common.SuccessResp(c)
 }
 
 func UpdateIndex(c *gin.Context) {
@@ -68,7 +68,7 @@ func UpdateIndex(c *gin.Context) {
 			log.Errorf("update index error: %+v", err)
 		}
 	}()
-	common.SuccessStrResp(c, "索引更新成功")
+	common.SuccessResp(c)
 }
 
 func StopIndex(c *gin.Context) {
@@ -92,7 +92,7 @@ func ClearIndex(c *gin.Context) {
 		LastDoneTime: nil,
 		Error:        "",
 	})
-	common.SuccessStrResp(c, "索引清除成功")
+	common.SuccessResp(c)
 }
 
 func GetProgress(c *gin.Context) {
