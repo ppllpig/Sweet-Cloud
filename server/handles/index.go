@@ -20,7 +20,7 @@ type UpdateIndexReq struct {
 
 func BuildIndex(c *gin.Context) {
 	if search.Running.Load() {
-		common.ErrorStrResp(c, "索引正在运行", 400)
+		common.ErrorStrResp(c, "请先停止索引运行", 400)
 		return
 	}
 	go func() {
@@ -46,7 +46,7 @@ func UpdateIndex(c *gin.Context) {
 		return
 	}
 	if search.Running.Load() {
-		common.ErrorStrResp(c, "索引正在运行", 400)
+		common.ErrorStrResp(c, "请先停止索引运行", 400)
 		return
 	}
 	if !search.Config(c).AutoUpdate {
@@ -82,7 +82,7 @@ func StopIndex(c *gin.Context) {
 
 func ClearIndex(c *gin.Context) {
 	if search.Running.Load() {
-		common.ErrorStrResp(c, "索引进行中", 400)
+		common.ErrorStrResp(c, "请先停止索引运行", 400)
 		return
 	}
 	search.Clear(c)
