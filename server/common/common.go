@@ -87,7 +87,7 @@ func SuccessStrResp(c *gin.Context, str string) {
         str = "执行成功"
     }
     // 使用 c.JSON 方法发送响应，状态码为 200
-    c.JSON(200, Resp{
+    c.JSON(200, Resp[interface{}]{
         Code:    200,
         Message: str,
     })
