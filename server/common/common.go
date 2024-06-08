@@ -80,3 +80,17 @@ func SuccessResp(c *gin.Context, data ...interface{}) {
 		Data:    data[0],
 	})
 }
+
+func SuccessStrResp(c *gin.Context, str string) {
+    // 如果 str 为空，则使用默认消息 "执行成功"
+    if str == "" {
+        str = "执行成功"
+    }
+    // 使用 c.JSON 方法发送响应，状态码为 200
+    c.JSON(200, Resp{
+        Code:    200,
+        Message: str,
+    })
+}
+
+
